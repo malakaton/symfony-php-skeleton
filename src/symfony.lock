@@ -8,9 +8,6 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.1"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -187,9 +184,6 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
-    "symfony/amqp-messenger": {
-        "version": "v5.2.12"
-    },
     "symfony/asset": {
         "version": "v5.1.11"
     },
@@ -222,9 +216,6 @@
     },
     "symfony/deprecation-contracts": {
         "version": "v2.2.0"
-    },
-    "symfony/doctrine-messenger": {
-        "version": "v5.2.12"
     },
     "symfony/dom-crawler": {
         "version": "v5.2.2"
@@ -279,9 +270,6 @@
             "src/Kernel.php"
         ]
     },
-    "symfony/http-client-contracts": {
-        "version": "v2.3.1"
-    },
     "symfony/http-foundation": {
         "version": "v5.2.2"
     },
@@ -333,12 +321,6 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.22.0"
     },
-    "symfony/polyfill-php73": {
-        "version": "v1.22.0"
-    },
-    "symfony/polyfill-php80": {
-        "version": "v1.22.0"
-    },
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
     },
@@ -350,9 +332,6 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.2"
-    },
-    "symfony/redis-messenger": {
-        "version": "v5.2.12"
     },
     "symfony/routing": {
         "version": "5.1",
