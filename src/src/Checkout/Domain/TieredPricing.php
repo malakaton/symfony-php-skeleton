@@ -13,6 +13,8 @@ final class TieredPricing
 
     public function calculate(): int
     {
-        return 299 * $this->quantity;
+        $price = 299;
+
+        return $price * $this->quantity;
     }
 }
