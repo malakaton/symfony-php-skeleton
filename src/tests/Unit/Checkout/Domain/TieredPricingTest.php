@@ -22,7 +22,7 @@ class TieredPricingTest extends UnitTestCase
      */
     public function it_should_get_price_from_quantity_value_equals_to_2(): void
     {
-        $tieredPricing = new TieredPricing(1);
+        $tieredPricing = new TieredPricing(2);
 
         self::assertEquals(299, $tieredPricing->getPrice());
     }
@@ -32,7 +32,7 @@ class TieredPricingTest extends UnitTestCase
      */
     public function it_should_get_price_from_quantity_value_equals_to_3(): void
     {
-        $tieredPricing = new TieredPricing(1);
+        $tieredPricing = new TieredPricing(3);
 
         self::assertEquals(239, $tieredPricing->getPrice());
     }
@@ -42,7 +42,7 @@ class TieredPricingTest extends UnitTestCase
      */
     public function it_should_get_price_from_quantity_value_equals_to_24(): void
     {
-        $tieredPricing = new TieredPricing(1);
+        $tieredPricing = new TieredPricing(24);
 
         self::assertEquals(219, $tieredPricing->getPrice());
     }
