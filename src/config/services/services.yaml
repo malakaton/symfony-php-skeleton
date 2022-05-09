@@ -27,9 +27,9 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Main\Infrastructure\Http\Controller\:
-        resource: '../../src/Main/Infrastructure/Http/Controller/*'
-        tags: ['controller.service_arguments']
+#    App\Main\Infrastructure\Http\Controller\:
+#        resource: '../../src/Main/Infrastructure/Http/Controller/*'
+#        tags: ['controller.service_arguments']
 
     App\Shared\Infrastructure\Bus\Query\MessengerQueryBus:
         arguments:

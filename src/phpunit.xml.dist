@@ -15,8 +15,6 @@
         <server name="KERNEL_CLASS" value="App\Kernel" />
         <env name="APP_ENV" value="test"/>
         <env name="APP_DEBUG" value="1"/>
-        <env name="REDIS_HOST" value="redis"/>
-        <env name="REDIS_PORT" value="6379"/>
         <env name="APP_SECRET" value="s$cretf0rt3st"/>
         <env name="SHELL_VERBOSITY" value="-1"/>
     </php>
