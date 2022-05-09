@@ -6,10 +6,6 @@ final class TieredPricing
 {
     private int $quantity;
 
-    private const PRICE_RANGE = [
-
-    ];
-
     public function __construct(int $quantity)
     {
         $this->quantity = $quantity;
@@ -17,7 +13,25 @@ final class TieredPricing
 
     public function getPrice(): int
     {
-        return 299;
+        $quantity = 1;
+
+        if ($quantity <= 2) {
+            return 299;
+        }
+
+        if ($quantity <= 10) {
+            return 239;
+        }
+
+        if ($quantity <= 25) {
+            return 219;
+        }
+
+        if ($quantity <= 50) {
+            return 199;
+        }
+
+        return 149;
     }
 
     public function calculate(): int
