@@ -4,96 +4,125 @@ namespace App\Tests\Unit\Checkout\Domain;
 
 use App\Checkout\Domain\TieredPricing;
 use App\Tests\Unit\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use Faker\Factory;
+use Faker\Generator;
 
 class TieredPricingTest extends UnitTestCase
 {
-    /**
-     * @test
-     */
-    public function it_should_get_price_from_quantity_value_equals_to_1(): void
-    {
-        $tieredPricing = new TieredPricing(1);
+    protected Generator $faker;
 
-        self::assertEquals(299, $tieredPricing->getPrice());
+    protected function setUp(): void
+    {
+        $this->faker = Factory::create();
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_2(): void
+    public function it_should_get_price_from_first_range(): void
     {
-        $tieredPricing = new TieredPricing(2);
+        $tieredPricing = new TieredPricing($this->faker->numberBetween(1, 2));
 
-        self::assertEquals(299, $tieredPricing->getPrice());
+        self::assertEquals(299, $tieredPricing->price());
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_3(): void
+    public function it_should_get_price_from_second_range(): void
     {
-        $tieredPricing = new TieredPricing(3);
+        $tieredPricing = new TieredPricing($this->faker->numberBetween(3, 10));
 
-        self::assertEquals(239, $tieredPricing->getPrice());
+        self::assertEquals(239, $tieredPricing->price());
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_10(): void
+    public function it_should_get_price_from_third_range(): void
     {
-        $tieredPricing = new TieredPricing(3);
+        $tieredPricing = new TieredPricing($this->faker->numberBetween(11, 25));
 
-        self::assertEquals(239, $tieredPricing->getPrice());
+        self::assertEquals(219, $tieredPricing->price());
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_11(): void
+    public function it_should_get_price_from_fourth_range(): void
     {
-        $tieredPricing = new TieredPricing(11);
+        $tieredPricing = new TieredPricing($this->faker->numberBetween(26, 50));
 
-        self::assertEquals(219, $tieredPricing->getPrice());
+        self::assertEquals(199, $tieredPricing->price());
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_24(): void
+    public function it_should_get_price_from_last_range(): void
     {
-        $tieredPricing = new TieredPricing(24);
+        $tieredPricing = new TieredPricing($this->faker->numberBetween(51, 100));
 
-        self::assertEquals(219, $tieredPricing->getPrice());
+        self::assertEquals(149, $tieredPricing->price());
     }
 
     /**
      * @test
      */
-    public function it_should_get_price_from_quantity_value_equals_to_52(): void
+    public function it_should_calculate_tiered_pricing_first_range(): void
     {
-        $tieredPricing = new TieredPricing(52);
+        $subscriptions = $this->faker->numberBetween(1, 2);
 
-        self::assertEquals(149, $tieredPricing->getPrice());
+        $tieredPricing = new TieredPricing($subscriptions);
+
+        self::assertEquals($subscriptions * $tieredPricing->price(), $tieredPricing->total());
     }
 
     /**
      * @test
      */
-    public function it_should_calculate_tiered_pricing(): void
+    public function it_should_calculate_tiered_pricing_second_range(): void
     {
-        $tieredPricing = new TieredPricing(1);
+        $subscriptions = $this->faker->numberBetween(3, 10);
 
-        self::assertEquals(299, $tieredPricing->calculate());
+        $tieredPricing = new TieredPricing($subscriptions);
+
+        self::assertEquals($subscriptions * $tieredPricing->price(), $tieredPricing->total());
     }
 
     /**
      * @test
      */
-    public function it_should_calculate_tiered_pricing_of_11_items(): void
+    public function it_should_calculate_tiered_pricing_third_range(): void
     {
-        $tieredPricing = new TieredPricing(11);
+        $subscriptions = $this->faker->numberBetween(11, 25);
 
-        self::assertEquals(2409, $tieredPricing->calculate());
+        $tieredPricing = new TieredPricing($subscriptions);
+
+        self::assertEquals($subscriptions * $tieredPricing->price(), $tieredPricing->total());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_calculate_tiered_pricing_fourth_range(): void
+    {
+        $subscriptions = $this->faker->numberBetween(26, 50);
+
+        $tieredPricing = new TieredPricing($subscriptions);
+
+        self::assertEquals($subscriptions * $tieredPricing->price(), $tieredPricing->total());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_calculate_tiered_pricing_last_range(): void
+    {
+        $subscriptions = $this->faker->numberBetween(51, 100);
+
+        $tieredPricing = new TieredPricing($subscriptions);
+
+        self::assertEquals($subscriptions * $tieredPricing->price(), $tieredPricing->total());
     }
 }

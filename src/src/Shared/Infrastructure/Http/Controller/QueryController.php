@@ -6,8 +6,8 @@ namespace App\Shared\Infrastructure\Http\Controller;
 
 use App\Shared\Application\Query\QueryBusInterface;
 use App\Shared\Application\Query\QueryInterface;
-use App\Shared\Application\Response\ResponseInterface;
 use App\Shared\Infrastructure\Http\Response\OpenApi;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 abstract class QueryController
@@ -24,22 +24,22 @@ abstract class QueryController
 
     /**
      * @param QueryInterface $query
-     * @return ResponseInterface|null
+     * @return array|null
      *
      */
-    protected function ask(QueryInterface $query): ResponseInterface
+    protected function ask(QueryInterface $query): array|null
     {
         return $this->queryBus->ask($query);
     }
 
     /**
-     * @param ResponseInterface $resource
+     * @param array $resource
      * @param int $status
-     * @return OpenApi
+     * @return Response
      */
-    protected function json(ResponseInterface $resource, int $status = OpenApi::HTTP_OK): OpenApi
+    protected function json(array $resource, int $status = Response::HTTP_OK): Response
     {
-        return OpenApi::one($resource, $status);
+        return OpenApi::one($resource, $status)->getResponse();
     }
 
     /**

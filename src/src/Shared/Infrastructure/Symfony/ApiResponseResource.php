@@ -7,7 +7,7 @@ namespace App\Shared\Infrastructure\Symfony;
 use JsonException;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ApiExceptionResource
+class ApiResponseResource
 {
     private const JSON_CONTENT_TYPE = 'application/json';
 
