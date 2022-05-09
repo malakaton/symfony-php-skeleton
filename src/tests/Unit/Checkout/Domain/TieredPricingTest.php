@@ -86,4 +86,14 @@ class TieredPricingTest extends UnitTestCase
 
         self::assertEquals(299, $tieredPricing->calculate());
     }
+
+    /**
+     * @test
+     */
+    public function it_should_calculate_tiered_pricing_of_11_items(): void
+    {
+        $tieredPricing = new TieredPricing(11);
+
+        self::assertEquals(2409, $tieredPricing->calculate());
+    }
 }

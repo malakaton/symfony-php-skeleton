@@ -31,7 +31,7 @@ final class TieredPricing
 
     public function calculate(): int
     {
-        $price = 299;
+        $price = $this->getPrice();
 
         return $price * $this->quantity;
     }
