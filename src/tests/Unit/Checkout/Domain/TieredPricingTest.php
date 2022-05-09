@@ -40,6 +40,26 @@ class TieredPricingTest extends UnitTestCase
     /**
      * @test
      */
+    public function it_should_get_price_from_quantity_value_equals_to_10(): void
+    {
+        $tieredPricing = new TieredPricing(3);
+
+        self::assertEquals(239, $tieredPricing->getPrice());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_get_price_from_quantity_value_equals_to_11(): void
+    {
+        $tieredPricing = new TieredPricing(11);
+
+        self::assertEquals(219, $tieredPricing->getPrice());
+    }
+
+    /**
+     * @test
+     */
     public function it_should_get_price_from_quantity_value_equals_to_24(): void
     {
         $tieredPricing = new TieredPricing(24);

@@ -21,7 +21,7 @@ final class TieredPricing
     public function getPrice(): int
     {
         foreach (self::PRICE_RANGE as $quantity => $price) {
-            if ($this->quantity < $quantity) {
+            if ($this->quantity <= $quantity) {
                 return $price;
             }
         }
