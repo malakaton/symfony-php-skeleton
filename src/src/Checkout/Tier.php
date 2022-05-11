@@ -48,6 +48,10 @@ final class Tier
             return $this->totalTierPrice();
         }
 
+        if ($subscriptions < $this->from) {
+            return 0;
+        }
+
         return ($subscriptions - $this->from + 1) * $this->price;
     }
 }
