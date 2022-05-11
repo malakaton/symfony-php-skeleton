@@ -12,11 +12,23 @@ class GraduatedTieredPricingTest extends UnitTestCase
     /**
      * @test
      */
-    public function it_should_works_graduated_tiered_pricing(): void
+    public function it_should_works_graduated_tiered_pricing_for_1_subscription(): void
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total();
+        $total = $graduatedTieredPricing->total(1);
+
+        self::assertEquals(299, $total);
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_works_graduated_tiered_pricing_for_2_subscriptions(): void
+    {
+        $graduatedTieredPricing = new GraduatedTieredPricing();
+
+        $total = $graduatedTieredPricing->total(2);
 
         self::assertEquals(299, $total);
     }
