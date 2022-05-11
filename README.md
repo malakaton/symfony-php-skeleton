@@ -1,4 +1,4 @@
-#PHP skeleton (PHP 8.1 + symfony 6 + xdebug 3.1.4)
+# PHP skeleton (PHP 8.1 + symfony 6 + xdebug 3.1.4)
 ### Requirements
 - [Docker](https://www.docker.com/)
 
