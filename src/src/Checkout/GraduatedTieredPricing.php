@@ -8,6 +8,6 @@ final class GraduatedTieredPricing
 {
     public function total(int $subscriptions)
     {
-        return 299;
+        return $subscriptions * 299;
     }
 }

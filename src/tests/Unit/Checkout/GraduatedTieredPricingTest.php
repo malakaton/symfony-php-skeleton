@@ -30,6 +30,6 @@ class GraduatedTieredPricingTest extends UnitTestCase
 
         $total = $graduatedTieredPricing->total(2);
 
-        self::assertEquals(299, $total);
+        self::assertEquals(598, $total);
     }
 }
