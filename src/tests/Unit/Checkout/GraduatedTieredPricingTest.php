@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Checkout;
 
+use App\Checkout\GraduatedTieredPricing;
 use App\Tests\Unit\Shared\Infrastructure\PhpUnit\UnitTestCase;
 
 class GraduatedTieredPricingTest extends UnitTestCase
@@ -13,6 +14,10 @@ class GraduatedTieredPricingTest extends UnitTestCase
      */
     public function it_should_works_graduated_tiered_pricing(): void
     {
-        self::assertTrue(true);
+        $graduatedTieredPricing = new GraduatedTieredPricing();
+
+        $total = $graduatedTieredPricing->total();
+
+        self::assertNull($total);
     }
 }
