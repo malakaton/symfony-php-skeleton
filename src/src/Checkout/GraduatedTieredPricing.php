@@ -15,6 +15,10 @@ final class GraduatedTieredPricing
             return 2729;
         }
 
+        if ($subscriptions === 12) {
+            return 2948;
+        }
+
         if ($subscriptions >= 3) {
             return $tier1total + ($subscriptions - $tier1size) * 239;
         }
