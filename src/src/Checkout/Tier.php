@@ -22,6 +22,16 @@ final class Tier
         return $this->to - $this->from + 1;
     }
 
+    public function to(): int
+    {
+        return $this->to;
+    }
+
+    public function from(): int
+    {
+        return $this->from;
+    }
+
     public function price(): int
     {
         return $this->price;
