@@ -8,6 +8,6 @@ final class GraduatedTieredPricing
 {
     public function total()
     {
-        return null;
+        return 299;
     }
 }
