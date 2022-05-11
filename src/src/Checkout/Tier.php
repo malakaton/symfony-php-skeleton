@@ -39,21 +39,21 @@ final class Tier
         return $this->price;
     }
 
-    public function tierPrice(): int
-    {
-        return $this->size() * $this->price;
-    }
-
     public function totalPrice(SubscriptionsBeingPurchased $subscriptions): int
     {
-        if ($subscriptions->value() >= $this->to) {
+        if ($subscriptions->coversSubscriptions($this)) {
             return $this->tierPrice();
         }
 
-        if ($subscriptions->value() < $this->from) {
+        if ($subscriptions->calculatedAllSubscriptions($this)) {
             return 0;
         }
 
-        return ($subscriptions->value() - $this->from + 1) * $this->price;
+        return $subscriptions->numberSubscriptions($this) * $this->price;
+    }
+
+    private function tierPrice(): int
+    {
+        return $this->size() * $this->price;
     }
 }
