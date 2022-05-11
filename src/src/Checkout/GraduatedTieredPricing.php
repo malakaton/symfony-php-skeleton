@@ -8,11 +8,16 @@ final class GraduatedTieredPricing
 {
     public function total(int $subscriptions): int
     {
-        $tier1total = 299 + 299;
+        $tier1price = 299;
         $tier1size = 2;
+        $tier1total = $tier1price * $tier1size;
+        $tier2size = 8;
+        $tier2price = 239;
+        $tier2total = $tier2price * $tier2size;
+        $tier3price = 219;
 
         if ($subscriptions === 11) {
-            return 2729;
+            return $tier1total + $tier2total + $tier3price;
         }
 
         if ($subscriptions === 12) {
