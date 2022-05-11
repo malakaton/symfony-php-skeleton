@@ -12,18 +12,14 @@ final class GraduatedTieredPricing
         $tier2 = new Tier(3, 10 , 239);
         $tier3 = new Tier(11, 25 , 219);
 
-        $tier1size = $tier1->size();
-        $tier1total = $tier1->totalPrice();
-        $tier2size = $tier2->size();
-        $tier2total = $tier2->totalPrice();
-        $tier3price = $tier3->price();
-
         if ($subscriptions >= 11) {
-            return ($tier1total + $tier2total) + ($subscriptions - $tier1size - $tier2size) * $tier3price;
+            return $tier1->totalPrice() +
+                $tier2->totalPrice() +
+                ($subscriptions - $tier1->size() - $tier2->size()) * $tier3->price();
         }
 
         if ($subscriptions >= 3) {
-            return $tier1total + ($subscriptions - $tier1size) * 239;
+            return $tier1->totalPrice() + ($subscriptions - $tier1->size()) * $tier2->price();
         }
 
         return $subscriptions * 299;
