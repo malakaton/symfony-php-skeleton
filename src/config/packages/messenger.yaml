@@ -1,9 +1,14 @@
 framework:
     messenger:
-        default_bus: messenger.bus.query
+        default_bus: query.bus
 
         buses:
-            messenger.bus.query:
+            query.bus:
+                default_middleware: false
+                middleware:
+                    - handle_message
+
+            command.bus:
                 default_middleware: false
                 middleware:
                     - handle_message

@@ -2,10 +2,10 @@ default:
     suites:
         default:
           paths:
-            -  "%paths.base%/tests/Functional/Features/Tweet.feature"
+            -  "%paths.base%/tests/Functional/Features/Test.feature"
           filters:
           contexts:
-            - App\Tests\Functional\Contexts\TweetContext
+            - App\Tests\Functional\Contexts\TestContext
 
     extensions:
         FriendsOfBehat\SymfonyExtension:

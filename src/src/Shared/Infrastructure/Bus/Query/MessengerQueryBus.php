@@ -6,7 +6,6 @@ namespace App\Shared\Infrastructure\Bus\Query;
 
 use App\Shared\Application\Query\QueryBusInterface;
 use App\Shared\Application\Query\QueryInterface;
-use App\Shared\Application\Response\ResponseInterface;
 use App\Shared\Infrastructure\Bus\MessageBusExceptionTrait;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -26,11 +25,11 @@ final class MessengerQueryBus implements QueryBusInterface
 
     /**
      * @param QueryInterface $query
-     * @return ResponseInterface|mixed
+     * @return array
      *
      * @throws Throwable
      */
-    public function ask(QueryInterface $query): ResponseInterface
+    public function ask(QueryInterface $query): array
     {
         try {
             $envelope = $this->messageBus->dispatch($query);

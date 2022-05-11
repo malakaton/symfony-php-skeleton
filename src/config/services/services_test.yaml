@@ -8,5 +8,5 @@ services:
 
     Symfony\Contracts\HttpClient: '@http.client'
 
-    App\Tests\Functional\Contexts\TweetContext:
+    App\Tests\Functional\Contexts\TestContext:
         public: true

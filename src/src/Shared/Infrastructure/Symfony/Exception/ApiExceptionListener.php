@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Symfony\Exception;
 
-use App\Shared\Infrastructure\Symfony\ApiExceptionResource;
+use App\Shared\Infrastructure\Symfony\ApiResponseResource;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -38,7 +38,7 @@ final class ApiExceptionListener
 
         $this->logger->critical("Exception occurred: {$message['message']}");
 
-        $event->setResponse((new ApiExceptionResource(
+        $event->setResponse((new ApiResponseResource(
             $exception->getCode() > 0 ? $exception->getCode() : Response::HTTP_INTERNAL_SERVER_ERROR,
             [],
             $message['errors'],
