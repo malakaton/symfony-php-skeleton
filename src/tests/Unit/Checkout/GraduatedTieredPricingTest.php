@@ -44,4 +44,16 @@ class GraduatedTieredPricingTest extends UnitTestCase
 
         self::assertEquals(837, $total);
     }
+
+    /**
+     * @test
+     */
+    public function it_should_works_graduated_tiered_pricing_for_4_subscriptions(): void
+    {
+        $graduatedTieredPricing = new GraduatedTieredPricing();
+
+        $total = $graduatedTieredPricing->total(4);
+
+        self::assertEquals(1076, $total);
+    }
 }
