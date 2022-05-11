@@ -8,11 +8,19 @@ final class GraduatedTieredPricing
 {
     public function total(int $subscriptions): int
     {
-        $tier1 = new Tier(1, 2 , 299);
-        $tier2 = new Tier(3, 10 , 239);
-        $tier3 = new Tier(11, 25 , 219);
+        $total = 0;
 
-        return $tier1->totalSubscriptionsPrice($subscriptions) +
-            $tier2->totalSubscriptionsPrice($subscriptions) + $tier3->totalSubscriptionsPrice($subscriptions);
+        $tiers = [
+            new Tier(1, 2 , 299),
+            new Tier(3, 10 , 239),
+            new Tier(11, 25 , 219),
+            new Tier(26, 50 , 199),
+        ];
+
+        foreach ($tiers as $tier) {
+            $total += $tier->totalSubscriptionsPrice($subscriptions);
+        }
+
+        return $total;
     }
 }
