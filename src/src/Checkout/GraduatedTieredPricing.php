@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Checkout;
 
+use App\Checkout\VO\SubscriptionsBeingPurchased;
+
 final class GraduatedTieredPricing
 {
-    public function total(int $subscriptions): int
+    public function total(SubscriptionsBeingPurchased $subscriptions): int
     {
         $total = 0;
 
@@ -18,7 +20,7 @@ final class GraduatedTieredPricing
         ];
 
         foreach ($tiers as $tier) {
-            $total += $tier->totalSubscriptionsPrice($subscriptions);
+            $total += $tier->totalPrice($subscriptions);
         }
 
         return $total;

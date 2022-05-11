@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Checkout;
 
 use App\Checkout\GraduatedTieredPricing;
+use App\Checkout\VO\SubscriptionsBeingPurchased;
 use App\Tests\Unit\Shared\Infrastructure\PhpUnit\UnitTestCase;
 
 class GraduatedTieredPricingTest extends UnitTestCase
@@ -16,7 +17,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(1);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(1));
 
         self::assertEquals(299, $total);
     }
@@ -28,7 +29,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(2);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(2));
 
         self::assertEquals(598, $total);
     }
@@ -40,7 +41,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(3);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(3));
 
         self::assertEquals(837, $total);
     }
@@ -52,7 +53,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(4);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(4));
 
         self::assertEquals(1076, $total);
     }
@@ -64,7 +65,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(5);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(5));
 
         self::assertEquals(1315, $total);
     }
@@ -76,7 +77,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(11);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(11));
 
         self::assertEquals(2729, $total);
     }
@@ -88,7 +89,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(12);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(12));
 
         self::assertEquals(2948, $total);
     }
@@ -100,7 +101,7 @@ class GraduatedTieredPricingTest extends UnitTestCase
     {
         $graduatedTieredPricing = new GraduatedTieredPricing();
 
-        $total = $graduatedTieredPricing->total(26);
+        $total = $graduatedTieredPricing->total(new SubscriptionsBeingPurchased(26));
 
         self::assertEquals(5994, $total);
     }

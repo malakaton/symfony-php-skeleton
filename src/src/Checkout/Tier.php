@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Checkout;
 
+use App\Checkout\VO\SubscriptionsBeingPurchased;
+
 final class Tier
 {
     private int $from;
@@ -37,21 +39,21 @@ final class Tier
         return $this->price;
     }
 
-    public function totalTierPrice(): int
+    public function tierPrice(): int
     {
         return $this->size() * $this->price;
     }
 
-    public function totalSubscriptionsPrice(int $subscriptions): int
+    public function totalPrice(SubscriptionsBeingPurchased $subscriptions): int
     {
-        if ($subscriptions >= $this->to) {
-            return $this->totalTierPrice();
+        if ($subscriptions->value() >= $this->to) {
+            return $this->tierPrice();
         }
 
-        if ($subscriptions < $this->from) {
+        if ($subscriptions->value() < $this->from) {
             return 0;
         }
 
-        return ($subscriptions - $this->from + 1) * $this->price;
+        return ($subscriptions->value() - $this->from + 1) * $this->price;
     }
 }
