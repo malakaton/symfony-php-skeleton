@@ -6,7 +6,7 @@ namespace App\Checkout;
 
 final class GraduatedTieredPricing
 {
-    public function total(int $subscriptions)
+    public function total(int $subscriptions): int
     {
         return $subscriptions * 299;
     }
