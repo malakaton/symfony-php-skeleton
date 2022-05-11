@@ -37,8 +37,13 @@ final class Tier
         return $this->price;
     }
 
-    public function totalPrice(): int
+    public function totalTierPrice(): int
     {
         return $this->size() * $this->price;
+    }
+
+    public function totalSubscriptionsPrice(int $subscriptions): int
+    {
+        return ($subscriptions - $this->from + 1) * $this->price;
     }
 }
