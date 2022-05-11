@@ -16,12 +16,8 @@ final class GraduatedTieredPricing
         $tier2total = $tier2price * $tier2size;
         $tier3price = 219;
 
-        if ($subscriptions === 11) {
-            return $tier1total + $tier2total + $tier3price;
-        }
-
-        if ($subscriptions === 12) {
-            return $tier1total + $tier2total + 2 * $tier3price;
+        if ($subscriptions >= 11) {
+            return ($tier1total + $tier2total) + ($subscriptions - $tier1size - $tier2size) * $tier3price;
         }
 
         if ($subscriptions >= 3) {
