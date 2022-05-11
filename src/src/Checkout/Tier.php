@@ -44,6 +44,10 @@ final class Tier
 
     public function totalSubscriptionsPrice(int $subscriptions): int
     {
+        if ($subscriptions >= $this->to) {
+            return $this->totalTierPrice();
+        }
+
         return ($subscriptions - $this->from + 1) * $this->price;
     }
 }
